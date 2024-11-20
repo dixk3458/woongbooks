@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BookData } from '../types/book';
+import { BookData } from '../../types/book';
 import styles from './page.module.css';
 import Link from 'next/link';
 import BookItem from '@/components/book-item';
@@ -47,7 +47,6 @@ async function RecoBooks() {
 export default async function Home() {
   return (
     <div className={styles.container}>
-      <div>임시 서치바</div>
       <section>
         <h3>지금 추천하는 도서</h3>
         <RecoBooks />
