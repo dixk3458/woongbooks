@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import './globals.css';
+import Link from 'next/link';
 
+import style from './layout.module.css';
 
 export default function RootLayout({
   children,
@@ -10,7 +11,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <div className={style.container}>
+          <header>
+            <Link href={'/'}>WOONGBOOKS</Link>
+          </header>
+          <main>{children}</main>
+          <footer>@WOONGBOOKS</footer>
+        </div>
       </body>
     </html>
   );
