@@ -5,8 +5,7 @@ import Link from 'next/link';
 import styles from './book-item.module.css';
 
 export default function BookItem({ book }: { book: BookData }) {
-  const { id, title, description, subTitle, author, coverImgUrl, publisher } =
-    book;
+  const { id, title, subTitle, author, coverImgUrl, publisher } = book;
 
   return (
     <Link className={styles.container} href={`/book/${id}`}>
