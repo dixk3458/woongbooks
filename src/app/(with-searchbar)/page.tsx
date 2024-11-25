@@ -8,7 +8,7 @@ import BookListSkeleton from '@/components/skeleton/book-list-skeleton';
 export const dynamic = 'force-dynamic';
 
 async function AllBooks() {
-  await delay(5).then(() => console.log('All 5초 걸림'));
+  // await delay(5).then(() => console.log('All 5초 걸림'));
 
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
@@ -33,7 +33,7 @@ async function AllBooks() {
 }
 
 async function RecoBooks() {
-  await delay(10).then(() => console.log('Reco 10초 걸림'));
+  // await delay(10).then(() => console.log('Reco 10초 걸림'));
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
     {
