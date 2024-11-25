@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 import styles from './page.module.css';
 import { notFound } from 'next/navigation';
+import ReviewList from '@/components/review-list';
+import ReviewEditor from '@/components/review-editor';
 
 export async function generateStaticParams() {
   const response = await fetch(
@@ -74,6 +76,8 @@ export default async function Page({
   return (
     <div className={styles.container}>
       <BookDetail bookId={id} />
+      <ReviewEditor bookId={id} />
+      <ReviewList bookId={id} />
     </div>
   );
 }
