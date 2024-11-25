@@ -2,6 +2,7 @@ import { BookData } from '@/types/book';
 import Image from 'next/image';
 
 import styles from './page.module.css';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const response = await fetch(
@@ -25,6 +26,9 @@ async function BookDetail({ bookId }: { bookId: string }) {
   );
 
   if (!response.ok) {
+    if (response.status === 404) {
+      notFound();
+    }
     return <div>오류가 발생했습니다.</div>;
   }
 
