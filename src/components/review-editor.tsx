@@ -46,6 +46,7 @@ export default function ReviewEditor({ bookId }: { bookId: string }) {
           name="content"
           placeholder="리뷰 내용"
           onChange={onChangeFormData}
+          value={formData.content}
         />
         <div className={styles.submit_container}>
           <input
@@ -54,6 +55,7 @@ export default function ReviewEditor({ bookId }: { bookId: string }) {
             type="text"
             name="author"
             placeholder="작성자"
+            value={formData.author}
             onChange={onChangeFormData}
           />
           <button disabled={isPending} type="submit">

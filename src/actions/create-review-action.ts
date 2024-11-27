@@ -2,7 +2,10 @@
 
 import { revalidateTag } from 'next/cache';
 
-export default async function createReviewAction(_: any, formData: FormData) {
+export default async function createReviewAction(
+  _: { status: boolean; error: string } | null,
+  formData: FormData
+) {
   const bookId = formData.get('bookId')?.toString();
   const content = formData.get('content')?.toString();
   const author = formData.get('author')?.toString();

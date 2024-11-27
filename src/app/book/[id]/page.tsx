@@ -6,6 +6,34 @@ import { notFound } from 'next/navigation';
 import ReviewList from '@/components/review-list';
 import ReviewEditor from '@/components/review-editor';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`,
+    { cache: 'force-cache' }
+  );
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const book: BookData = await response.json();
+
+  return {
+    title: `${book.title} - 웅 북스`,
+    description: `${book.description}`,
+    openGraph: {
+      title: `${book.title} - 웅 북스`,
+      description: `${book.description}`,
+      images: [book.coverImgUrl],
+    },
+  };
+}
+
 export async function generateStaticParams() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`

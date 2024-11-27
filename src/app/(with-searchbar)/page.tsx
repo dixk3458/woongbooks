@@ -1,11 +1,21 @@
-import delay from '@/utils/delay';
 import { BookData } from '../../types/book';
 import styles from './page.module.css';
 import BookItem from '@/components/book-item';
 import { Suspense } from 'react';
 import BookListSkeleton from '@/components/skeleton/book-list-skeleton';
+import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
+export const metadata: Metadata = {
+  title: '웅 북스',
+  description: '웅 북스에 등록된 도서를 만나보세요.',
+  openGraph: {
+    title: '웅 북스',
+    description: '웅 북스에 등록된 도서를 만나보세요.',
+    images: ['/thumbnail.png'],
+  },
+};
+
+// export const dynamic = 'force-dynamic';
 
 async function AllBooks() {
   // await delay(5).then(() => console.log('All 5초 걸림'));
